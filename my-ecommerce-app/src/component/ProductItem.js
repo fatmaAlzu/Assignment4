@@ -24,7 +24,7 @@ const ProductItem = ({ product, onAddToCart }) => {
 
   return (
     <ProductItemContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <img src={product.image} alt={product.name} />
+      <img width="200px" src={product.image} alt={product.name} />
       <ProductName>{product.name}</ProductName>
       {showDescription && <div>{product.description}</div>}
       <div>${product.price}</div>

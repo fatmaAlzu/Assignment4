@@ -13,15 +13,18 @@ const CartItemImage = styled.img`
 `;
 
 function CartItem({ item, onRemove }) {
+
     return (
         <CartItemContainer>
+            <div>
             <CartItemImage src={item.image} alt={item.name} className="product-image" />
 
-            <div>{item.name}</div>
-            <div>${item.price}</div>
-            <div>Quantity: {item.quantity}</div>
-            <div>Total: ${item.totalPrice}</div>
-            <button onClick={() => onRemove(item)}>Remove</button>
+            <span>{item.name}</span>
+            <span>${item.price}</span>
+            <span>Quantity: {item.quantity}</span>
+            <span>Total: ${item.totalPrice}</span>
+            </div>
+            <button onClick={() => onRemove(item)}>Remove</button>           
         </CartItemContainer>
     );
 }

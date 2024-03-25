@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
+import Header from './header';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Footer from './Footer';
@@ -61,7 +61,7 @@ const Productpage = () => {
       <table>
         <tr>
           <td><ProductList onAddToCart={addToCart} /></td>
-          <td style={{ verticalAlign: 'top' }}><Cart cart={cart} onRemove={removeFromCart} onDecrease={decreaseQuantity} /></td>
+          <td style={{ verticalAlign: 'top' }}><Cart cartItems={cart} onRemove={removeFromCart}/></td>
         </tr>
       </table>
       <Footer />
