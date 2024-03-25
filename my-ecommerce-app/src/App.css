@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.table-container table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table-container td {
+  vertical-align: top;
+}
+
+.table-container .product-list {
+  width: 30%;
+}
+
+.table-container .shopping-cart {
+  width: 20%;
+}

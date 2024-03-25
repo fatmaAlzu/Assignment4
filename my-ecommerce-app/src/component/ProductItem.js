@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const ProductItemContainer = styled.div`
-  border: 1px solid #ccc;
   margin: 10px;
   padding: 10px;
 `;
@@ -24,11 +23,11 @@ const ProductItem = ({ product, onAddToCart }) => {
 
   return (
     <ProductItemContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <img width="200px" src={product.image} alt={product.name} />
+      <img width="250px" src={product.image} alt={product.name} />
       <ProductName>{product.name}</ProductName>
-      {showDescription && <div>{product.description}</div>}
       <div>${product.price}</div>
       <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+      {showDescription && <div>{product.description}</div>}
     </ProductItemContainer>
   );
 };

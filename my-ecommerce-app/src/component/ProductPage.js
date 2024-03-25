@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Footer from './Footer';
+import '../App.css';
 
 const Productpage = () => {
   const [cart, setCart] = useState([]);
@@ -41,8 +42,26 @@ const Productpage = () => {
   };
 
   const removeFromCart = (itemToRemove) => {
-    const updatedCart = cart.filter(item => item.id !== itemToRemove.id);
-    setCart(updatedCart);
+    const existingItem = cart.find(item => item.id === itemToRemove.id);
+  
+    if (existingItem && existingItem.quantity > 1) {
+      // Decrease quantity and update totalPrice
+      const updatedCart = cart.map(item => {
+        if (item.id === itemToRemove.id) {
+          return { 
+            ...item, 
+            quantity: item.quantity - 1, 
+            totalPrice: (item.quantity - 1) * item.price // Update totalPrice based on the new quantity
+          };
+        }
+        return item;
+      });
+      setCart(updatedCart);
+    } else {
+      // Remove the item from the cart if quantity is one
+      const updatedCart = cart.filter(item => item.id !== itemToRemove.id);
+      setCart(updatedCart);
+    }
   };
 
   const decreaseQuantity = (itemToDecrease) => {
@@ -58,12 +77,14 @@ const Productpage = () => {
   return (
     <div className="product-page">
       <Header />
+      <div className="table-container">
       <table>
         <tr>
-          <td><ProductList onAddToCart={addToCart} /></td>
-          <td style={{ verticalAlign: 'top' }}><Cart cartItems={cart} onRemove={removeFromCart}/></td>
+          <td className="product-list"><ProductList onAddToCart={addToCart} /></td>
+          <td className="shopping-cart" style={{ verticalAlign: 'top' }}><Cart cartItems={cart} onRemove={removeFromCart} onDecreaseQuantity={decreaseQuantity}/></td>
         </tr>
       </table>
+      </div>
       <Footer />
     </div>
   );

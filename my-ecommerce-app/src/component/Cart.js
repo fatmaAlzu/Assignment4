@@ -1,7 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-function Cart ({cartItems, onRemove}){
+function Cart ({cartItems, onRemove, onDecreaseQuantity}){
     const totalPrice = Array.isArray(cartItems)
     ? cartItems.reduce((acc, item) => acc + item.totalPrice, 0)
     : 0;
@@ -10,9 +10,9 @@ function Cart ({cartItems, onRemove}){
         <div>
             <h2> Shopping Cart</h2>
             {cartItems && cartItems.map((item) =>(
-                <CartItem key = {item.id} item = {item} onRemove={onRemove}/>
+                <CartItem key = {item.id} item = {item} onRemove={onRemove} onDecreaseQuantity={onDecreaseQuantity}/>
             ))}
-            <div> Total Price: ${totalPrice.toFixed(2)}</div>
+            <div> Total (in cart): ${totalPrice.toFixed(2)}</div>
         </div>
     );
 }
