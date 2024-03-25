@@ -1,55 +1,55 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const HeaderContainer = styled.header`
+const styles = {
+  companyinfo: {
+    display:"flex",
+    width: "100%",
+  },
+  companylogo: {
+    width: '50px',
+  },
+  companyname: {
+    width: "90%",
+    textAlign: "right",
+  },
+};
+
+const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 90%;
 `;
 
-const Logo = styled.img`
-  height: 50px;
+const HeaderContainer = styled.div`
+  display: Flex;
+  justify-content: center;
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: center; // Center the navigation links
-  align-items: center;
-`;
+function Header() {
+return (
+  <div>
+    <div style={styles.companyinfo}>
+      <div style={styles.companylogo}>
+        <img src="./images/Logo.jpg" alt="Company Logo" width="250"/>
+      </div>
 
-const NavItem = styled(NavLink)`
-  text-decoration: none;
-  margin: 0 15px; // Adjust margin to match the image
-  color: #333;
-  font-size: 1em; // Adjust font size to match the image
-`;
+      <div style={styles.companyname}>
+        <h1>KAMFA</h1>
+      </div>
+      <br/>
+    </div>
 
-const CompanyName = styled.div`
-  font-size: 1.2em; // Adjust the company name size to match the image
-  font-weight: bold;
-  margin-right: 20px; // Ensure there's some spacing to the right edge
-`;
-
-const Header = () => {
-  return (
     <HeaderContainer>
-      <Logo src="./images/Logo.jpg" alt="Website Logo" />
-      <Nav>
-        <NavItem to="/" exact>
-          Home
-        </NavItem>
-        <NavItem to="/products">
-          Products
-        </NavItem>
-        <NavItem to="/login">
-          Login
-        </NavItem>
-      </Nav>
-      <CompanyName>KAMFA</CompanyName>
+      <StyledNav>
+        <a href = "/"> Home </a>
+        <a href = "/products"> Products </a>
+        <a href = "/login"> Login </a>
+      </StyledNav>
     </HeaderContainer>
-  );
-};
+  </div>
+);
+}
 
 export default Header;

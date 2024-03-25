@@ -17,7 +17,7 @@ const HomeMainSection = () => {
       <section className="about-us">
         <h2>About Us</h2>
         <p>Company's mission and vision description goes here...</p>
-        <button>Shop Now</button>
+        <button href="/products">Shop Now</button>
       </section>
       <section className="customer-reviews">
         <h2>Customer Reviews</h2>
