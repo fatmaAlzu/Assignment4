@@ -1,16 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Homepage from './components/Homepage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './component/Homepage.js';
+import ProductsPage from './component/ProductPage.js';
+
 
 const App = () => {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/" exact component={Homepage} />
-
-          {/* Add other routes for products, login, etc. */}
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Homepage/>} />
+          <Route path='/products' element={<ProductsPage/>}/>
+        </Routes>
       </div>
     </Router>
   );

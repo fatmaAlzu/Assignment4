@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductItem from './ProductItem';
-import productsData from '../data/products';
+import productsData from '../data/product';
 
 const ProductList = ({ onAddToCart }) => {
   return (
